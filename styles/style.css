@@ -9,11 +9,13 @@ html {
 }
 
 .page {
+  display: flex;
+  justify-content: center;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
 }
@@ -47,5 +49,84 @@ ol {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
+}
+
+/* ?------------------------------------------------------  */
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 1140px;
+  gap: 30px;
+  height: 534px;
+}
+/* .title {
+  width: 260px;
+  height: 210px;
+} */
+.search-form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.search-form__fieldset {
+  flex: 1;
+  min-width: 0;
+}
+.content__list-container {
+  height: 300px;
+  /* *! height: 400px; Задать горизонтальные размеры  */
+  overflow-y: auto;
+}
+
+.content__details {
+  width: 100%; /* занимает всю ширину области 'details' */
+  height: 100%; /* занимает всю высоту родителя (.content) */
+  display: flex;
+  flex-direction: column; /* вертикальное расположение: заголовок → список */
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 26px; /* отступ между заголовком и .content__list-container */
+  box-sizing: border-box;
+}
+
+.result__video-container {
+  width: 711px;
+  height: 386px;
+}
+
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* заполняет контейнер без искажения */
+  object-position: center;
+  display: block; /* убирает нижний отступ у видео */
+}
+
+.content__list-item {
+  gap: 36px;
+}
+.content__video-card {
+  display: flex; 
+  justify-content: space-between;
+  align-items: flex-start; 
+  margin-bottom: 30px;
+}
+/* .content__video-card:nth-last-child {
+  margin-bottom: 30px;
+} */
+
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.content__video-card-description-container {flex-grow: 1;
 }
