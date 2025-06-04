@@ -62,10 +62,7 @@ ol {
   gap: 30px;
   height: 534px;
 }
-/* .title {
-  width: 260px;
-  height: 210px;
-} */
+
 .search-form {
   display: flex;
   justify-content: flex-start;
@@ -73,24 +70,62 @@ ol {
   gap: 40px;
 }
 
-.search-form__fieldset {
-  flex: 1;
-  min-width: 0;
+.content__accent {
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 94%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #545050;
+}
+.content__card-link {
+  text-decoration: none;
+  color: #ffffff;
 }
 .content__list-container {
   height: 300px;
-  /* *! height: 400px; Задать горизонтальные размеры  */
   overflow-y: auto;
 }
+.content__video-card-title {
+  font-family: Oswald;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: Oswald;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* заменить переполнение на "…" */
+}
+.content__video-card-description {
+  font-family: Fira Sans Condensed;
+  color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 16.2px;
+  letter-spacing: 0%;
 
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; /* количество отображаемых строк */
+  overflow: hidden;
+}
 .content__details {
-  width: 100%; /* занимает всю ширину области 'details' */
-  height: 100%; /* занимает всю высоту родителя (.content) */
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column; /* вертикальное расположение: заголовок → список */
+  flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  gap: 26px; /* отступ между заголовком и .content__list-container */
+  gap: 26px;
   box-sizing: border-box;
 }
 
@@ -111,15 +146,11 @@ ol {
   gap: 36px;
 }
 .content__video-card {
-  display: flex; 
+  display: flex;
   justify-content: space-between;
-  align-items: flex-start; 
+  align-items: flex-start;
   margin-bottom: 30px;
 }
-/* .content__video-card:nth-last-child {
-  margin-bottom: 30px;
-} */
-
 
 .content__video-card-thumbnail {
   width: 194px;
@@ -128,5 +159,123 @@ ol {
   object-position: center;
   display: block;
 }
-.content__video-card-description-container {flex-grow: 1;
+.content__video-card-description-container {
+  flex-grow: 1;
+}
+/*? *Шаг 4. Стилизуем формы и их состояния? */
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search-form__fieldset {
+  flex: 1;
+  min-width: 0; /* — Позволяет элементу сжиматься, если контента больше, чем доступная ширина. Это важно, иначе он может не ужиматься даже с flex: 1;. */
+  border: none;
+}
+.search-form__fieldset-title {
+  background-color: transparent;
+  color: #ffffff;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px solid transparent; /* чтобы не дёргался при появлении рамки */
+}
+.search-form__textfield {
+  appearance: none; /* сброс стилей браузера */
+  border: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  width: 225px;
+  height: 27px;
+  padding: 0;
+  outline: none; /* убираем дефолтную обводку при фокусе */
+}
+
+/* *?     Стилизуем чекбокс */
+/* Сброс outline */
+.search-form__textfield:focus {
+  outline: none;
+  /* Лейбл с границей только при фокусе через клавиатуру */
+}
+
+/* Добавляем границу, если внутри label есть input с focus-visible */
+/* .search-form__label:has(.search-form__textfield:focus-visible) {
+  border-color: #fff;
+} */
+
+.search-form__checkbox-list {
+  display: flex;
+}
+.search-form__label {
+  /* display: flex; */
+}
+.search-form__pseudo-checkbox {
+  position: relative;
+  width: 19px;
+  height: 19px;
+  border: 1px solid white;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Центрируем псевдоэлемент ::after внутри псевдочекбокса */
+.search-form__pseudo-checkbox::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 17px; /* на 2px меньше, чем сам чекбокс (19 - 2 = 17) */
+  height: 17px;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  opacity: 0; /* по умолчанию скрыт */
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Когда чекбокс отмечен — показываем внутренний квадрат */
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  opacity: 1;
+}
+
+/* Добавляем outline псевдочекбоксу, когда чекбокс в фокусе (с помощью :has) */
+.search-form__label:has(.search-form__checkbox:focus-visible)
+  .search-form__pseudo-checkbox {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Подчёркиваем текст при наведении на лейбл */
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Немного отступа между псевдочекбоксом и текстом */
+.search-form__label-text {
+  margin-left: 8px;
+  user-select: none; /* чтобы текст не выделялся случайно */
 }
