@@ -81,7 +81,17 @@ ol {
   text-decoration: none;
   color: #ffffff;
 }
- 
+.content__list-container {
+  height: 300px;
+  overflow-y: auto;
+}
+.content__video-card-title {
+  color: #fff;
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
+  text-transform: uppercase;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
