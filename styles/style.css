@@ -157,7 +157,6 @@ ol {
 .content__video- main {
   flex-grow: 1;
 }
-/*? *Шаг 4. Стилизуем формы и их состояния? */
 .visually-hidden {
   position: absolute;
   inline-size: 1px;
@@ -214,7 +213,6 @@ ol {
   outline: none;
 }
 
-/* *?     Стилизуем чекбокс */
 .search-form__textfield:focus {
   outline: none;
 }
@@ -223,7 +221,6 @@ ol {
   height: 40px;
   display: flex;
   justify-content: space-between;
-  /* gap: 15px; */
 }
 .search-form__pseudo-checkbox {
   position: relative;
@@ -270,7 +267,6 @@ ol {
   margin-left: 8px;
   user-select: none;
 }
-/* *?     Стилизуем кнопки и их состояния      */
 .button {
   display: flex;
   justify-content: center;
@@ -307,7 +303,6 @@ ol {
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
-/* *?      Шаг 6. Состояния карточек      */
 .content__list-container {
   padding: 3px;
 }
