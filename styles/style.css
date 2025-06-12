@@ -273,10 +273,11 @@ ol {
   font-weight: 400;
   font-size: 18px;
   line-height: 16.2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-clamp: 1;
+  overflow-y: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
 }
 .content__video-card-thumbnail {
   min-width: 194px;
